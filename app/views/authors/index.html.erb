@@ -1,0 +1,28 @@
+<h1>Welcome to Richmond Library</h1>
+<%= link_to 'Richmond Library Books', controller: 'books' %>
+
+<%= link_to 'New Author', new_author_path %>
+
+<%= link_to 'New Book', new_book_path %>
+
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th colspan="5"></th>
+    <th></th>
+  </tr>
+
+  <% @authors.each do |author| %>
+    <tr>
+      <td><%= author.first_name %></td>
+      <td><%= author.last_name %></td>
+      <td><%= link_to 'Show', author_path(author) %></td>
+      <td><%= link_to 'Edit', edit_author_path(author) %></td>
+      <td><%= link_to 'Destroy', author_path(author),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
